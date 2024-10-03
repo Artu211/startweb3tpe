@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: text/html; charset=UTF-8');
-
+require('app/functions/helper.function.php');
 require('app/config/config.php');
 require('app/config/db.php');
 require('app/functions/validate.function.php');
@@ -23,11 +23,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$query = "INSERT INTO users SET user_name = '{$_POST['name']}', user_surname = '{$_POST['surname']}', user_email = '{$_POST['email']}', user_password = '$password'";
 		if ($db->query($query))
 		{
-			echo 'Data was inserted Successfully';
+			showMessage('succes');
+			// echo '<div class="alert alert-success">
+  			// <strong>Success!</strong> Indicates a successful or positive action.</div>';
 		}
 		else
 		{
-			echo 'Data has not been inserted!';
+			showMessage('deny');
 		}
 	}
 }
@@ -51,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			</section>
 			<section class="content">
 				<h1 class="align-center">Lista użytkowników</h1>
-				<?php //include ('templates/users.html.php'); ?>
+				<?php include ('templates/users.html.php'); ?>
 			</section>
 		</main>
 	</body>
