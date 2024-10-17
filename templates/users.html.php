@@ -1,6 +1,6 @@
 
 <?php
-
+//cosio
 $html = '<table class="table">';
 $html .= '<tr><th>ID</th><th>imię i nazwisko</th><th>email</th><th class= "text-center">aktywność</th></tr>';
 $sql = "SELECT * FROM users";

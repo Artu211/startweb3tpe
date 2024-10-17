@@ -8,7 +8,7 @@
                 <input id="name" class="form-control" type="text" name="name" placeholder="Imię" value="<?php if(isset($_POST['name']) && $isError): echo $_POST['name']; endif; ?>" require>
             </div>
             <div class="mb-4">
-                <label class="form-label" for="surname">Nazwisko</label>
+                <label class="form-label" for="surname">Nazwisko</label> <!--121221-->
                 <input class="form-control" type="text" name="surname" placeholder="Nazwisko" value="<?php if(isset($_POST['surname']) && $isError): echo $_POST['surname']; endif; ?>" require/>
             </div>
             <div class="mb-4">
