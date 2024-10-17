@@ -24,8 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if ($db->query($query))
 		{
 			showMessage('succes');
-			// echo '<div class="alert alert-success">
-  			// <strong>Success!</strong> Indicates a successful or positive action.</div>';
+			// echo '<div class="alert alert-success">io0kui9jyu
 		}
 		else
 		{
