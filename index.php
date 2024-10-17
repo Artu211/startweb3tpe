@@ -6,6 +6,7 @@ require('app/config/config.php');
 require('app/config/db.php');
 require('app/functions/validate.function.php');
 require('app/functions/helper.function.php');
+include('templates/MasterPage.html.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {	
@@ -68,10 +69,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				
 				
 				?>
-				<?php include ('templates/form.html.php'); ?>
+				<?php include ('templates/views/index/form.html.php'); ?>
 			</section>
 			<section class="content">
-				<?php include ('templates/users.html.php'); ?>
+				<?php include ('templates/views/index/users.html.php'); ?>
 			</section>
 		</main>
 	</body>
