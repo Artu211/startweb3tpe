@@ -1,33 +1,28 @@
 <?php
 
 header('Content-Type: text/html; charset=UTF-8');
-require('app/functions/helper.function.php');
+
 require('app/config/config.php');
 require('app/config/db.php');
 require('app/functions/validate.function.php');
+require('app/functions/helper.function.php');
+include('templates/MasterPage.html.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{	
-	fieldRequired('Imię', $_POST['name']);
-	fieldRequired('Nazwisko', $_POST['surname']);
-	fieldRequired('E-mail', $_POST['email']);
-	fieldRequired('Hasło', $_POST['password']);
-	if(!$isError)
-	{
-		isEmail('E-mail', $_POST['email']);
-	}
 
+<<<<<<< HEAD
+include ('templates/MasterPage.html.php');
+=======
 	if (!$isError)
 	{	
 		$password = md5(PASS_SALT . $_POST['password']);
 		$query = "INSERT INTO users SET user_name = '{$_POST['name']}', user_surname = '{$_POST['surname']}', user_email = '{$_POST['email']}', user_password = '$password'";
 		if ($db->query($query))
 		{
-			showMessage('succes');
+			showMessage('success', 'Data was inserted Successfully');
 		}
 		else
 		{
-			showMessage('deny');
+			showMessage('warning', 'Data has not been inserted!');
 		}
 	}
 }
@@ -47,12 +42,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	<body>
 		<main>
 			<section class="content">
-				<?php include ('templates/form.html.php'); ?>
+				<?php
+					if(isset($_REQUEST["action"])){
+						$action = $_REQUEST['action'];
+						switch($action){
+							case'delete':
+								if(isset($_REQUEST['id']) && !empty($_REQUEST['id'])){
+									$id = (int) $_REQUEST['id'];
+									if($db->query("DELETE FROM users WHERE id = $id")){
+										showMessage("info","Selected record was deleted from DB");
+									}
+									else{
+										showMessage("warning","Record has not been deleted");
+									}
+								}
+								break;
+						}
+					}
+				
+				
+				?>
+				<?php include ('templates/views/index/form.html.php'); ?>
 			</section>
 			<section class="content">
-				<h1 class="align-center">Lista użytkowników</h1>
-				<?php include ('templates/users.html.php'); ?>
+				<?php include ('templates/views/index/users.html.php'); ?>
 			</section>
 		</main>
 	</body>
 </html>
+>>>>>>> 0ba3df90454127a7f8c4d104ed1f55a19fffd492
