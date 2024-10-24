@@ -9,26 +9,22 @@ require('app/functions/helper.function.php');
 include('templates/MasterPage.html.php');
 
 
-<<<<<<< HEAD
 include ('templates/MasterPage.html.php');
-=======
-	if (!$isError)
-	{	
-		$password = md5(PASS_SALT . $_POST['password']);
-		$query = "INSERT INTO users SET user_name = '{$_POST['name']}', user_surname = '{$_POST['surname']}', user_email = '{$_POST['email']}', user_password = '$password'";
-		if ($db->query($query))
-		{
-			showMessage('success', 'Data was inserted Successfully');
-		}
-		else
-		{
-			showMessage('warning', 'Data has not been inserted!');
-		}
+if (!$isError)
+{	
+	$password = md5(PASS_SALT . $_POST['password']);
+	$query = "INSERT INTO users SET user_name = '{$_POST['name']}', user_surname = '{$_POST['surname']}', user_email = '{$_POST['email']}', user_password = '$password'";
+	if ($db->query($query))
+	{
+		showMessage('success', 'Data was inserted Successfully');
+	}
+	else
+	{
+		showMessage('warning', 'Data has not been inserted!');
 	}
 }
-
 ?>
-
+<!--    cosio   -->
 <!DOCTYPE html>
 <html data-bs-theme="dark">
     <head>
@@ -70,4 +66,3 @@ include ('templates/MasterPage.html.php');
 		</main>
 	</body>
 </html>
->>>>>>> 0ba3df90454127a7f8c4d104ed1f55a19fffd492
