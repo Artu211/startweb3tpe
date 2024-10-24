@@ -4,8 +4,8 @@
 $html = '<table class="table">';
 $html .= '<thead><tr><th>#</th><th>imię i nazwisko</th><th>email</th><th class="text-center">aktywność</th><th>akcje</th></tr></thead>';
 $html .= '<tbody>';
-$sql = "SELECT * FROM users";
-$res = $db->query($sql);
+// $sql = "SELECT * FROM users";
+// $res = $db->query($sql);
 if ($res->num_rows > 0)
 {
 	while ($row = $res->fetch_assoc())
