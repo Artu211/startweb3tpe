@@ -23,6 +23,9 @@ function showMessage($messageType, $messageText)
         case 'warning':
             $html .= '<div class="alert alert-warning" role="alert">';
             break;
+        case 'info':
+            $html .= '<div class="alert alert-primary" role="alert">';
+            break;            
 
     }
     $html .= $messageText;
@@ -31,4 +34,10 @@ function showMessage($messageType, $messageText)
     {
         echo $html;
     }
+}
+
+function redirect($url)
+{
+    header('Location: ' . $url, true, 307);
+    exit;
 }
